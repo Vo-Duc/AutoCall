@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#405BF3">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Edit Phone"
+        android:textColor="#D7EAD4"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập tên liên hệ"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/edit_Number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_Name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập số điện thoại"
+        android:textColor="@color/white" />
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/edit_Number"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="26dp">
+
+        <Button
+            android:id="@+id/btnSaveEditPhone"
+            android:layout_height="match_parent"
+            android:layout_below="@id/edit_Number"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:text="Save"
+            android:background="@drawable/phone_item_background" />
+
+        <Button
+            android:id="@+id/btnCancelEditPhone"
+            android:layout_height="match_parent"
+            android:layout_below="@id/edit_Number"
+            android:layout_toEndOf="@+id/btnSaveEditPhone"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/phone_item_background"
+
+            android:text="Cancel" />
+    </TableRow>
+</RelativeLayout>

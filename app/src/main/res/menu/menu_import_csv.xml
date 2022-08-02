@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.Activity_CallWithMp3">
+    <item android:id="@+id/menu_import_csv"
+        android:title="Thêm số điện thoại từ csv" />
+    <item android:id="@+id/menu_contacts"
+        android:title="Chọn số từ danh bạ" />
+    <item android:id="@+id/menu_delete_csv"
+        android:title="Xóa hết số điện thoại" />
+</menu>
