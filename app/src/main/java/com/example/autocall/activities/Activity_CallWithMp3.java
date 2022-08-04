@@ -98,8 +98,8 @@ public class Activity_CallWithMp3 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mTelephonyManager.listen(mnPhoneStateListener, PhoneStateListener.LISTEN_PRECISE_CALL_STATE);
-        //mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+        //mTelephonyManager.listen(mnPhoneStateListener, PhoneStateListener.LISTEN_PRECISE_CALL_STATE);
+        mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
         /*if(wentIntoCall)
             callNow("0364647812");*/
     }
@@ -375,48 +375,48 @@ public class Activity_CallWithMp3 extends AppCompatActivity {
             super.onCallStateChanged(state, incomingNumber);
             //mCallState = mTelephonyManager.getCallState();
 
-//            switch (state) {
-//
-//                case TelephonyManager.CALL_STATE_IDLE:
-//                    wasRinging = false;
-//                    try {
-//                        db.collection("Audio").document(selected_Audio.getId()).update("status", "0");
-//                    }
-//                    catch (Exception e){}
-//                    //Toast.makeText(Activity_CallWithMp3.this, "kết thúc cuộc gọi", Toast.LENGTH_SHORT).show();
-//                    if(wentIntoCall==true){
-//                        try {
-//                            stopRecord();
-//                        }
-//                        catch (Exception e){}
-//                        if(phoneList_Temp.size()==1){
-//                            wentIntoCall=false;
-//                            //db.collection("User").document(auth.getUid()).update("select_Audio", "0");
-//                        }
-//                        else if(phoneList_Temp.size()!=0){
-//                            phoneList_Temp.remove(0);
-//                            wentIntoCall=false;
-//                            callNow(phoneList_Temp.get(0).getPhone_Number());
-//                        }
-//                    }
-//                    break;
-//                case TelephonyManager.CALL_STATE_RINGING:
-//                    wasRinging = true;
-//                    Toast.makeText(Activity_CallWithMp3.this, "đổ chuông", Toast.LENGTH_SHORT).show();
-//                    break;
-//                case TelephonyManager.CALL_STATE_OFFHOOK:
-//                    if (!wasRinging) {
-//                        try {
-//                            //Kiểm tra trạng thái bắt máy
-//                            // ???????????????????
-//                            db.collection("Audio").document(selected_Audio.getId()).update("status", "1");
-//                            //Toast.makeText(Activity_CallWithMp3.this, "bắt máy", Toast.LENGTH_SHORT).show();
-//                            wentIntoCall = true;
-//                        }catch (Exception e) {}
-//                    }
-//                    wasRinging = true;
-//                    break;
-//            }
+            switch (state) {
+
+                case TelephonyManager.CALL_STATE_IDLE:
+                    wasRinging = false;
+                    try {
+                        db.collection("Audio").document(selected_Audio.getId()).update("status", "0");
+                    }
+                    catch (Exception e){}
+                    //Toast.makeText(Activity_CallWithMp3.this, "kết thúc cuộc gọi", Toast.LENGTH_SHORT).show();
+                    if(wentIntoCall==true){
+                        try {
+                            stopRecord();
+                        }
+                        catch (Exception e){}
+                        if(phoneList_Temp.size()==1){
+                            wentIntoCall=false;
+                            //db.collection("User").document(auth.getUid()).update("select_Audio", "0");
+                        }
+                        else if(phoneList_Temp.size()!=0){
+                            phoneList_Temp.remove(0);
+                            wentIntoCall=false;
+                            callNow(phoneList_Temp.get(0).getPhone_Number());
+                        }
+                    }
+                    break;
+                case TelephonyManager.CALL_STATE_RINGING:
+                    wasRinging = true;
+                    //Toast.makeText(Activity_CallWithMp3.this, "đổ chuông", Toast.LENGTH_SHORT).show();
+                    break;
+                case TelephonyManager.CALL_STATE_OFFHOOK:
+                    if (!wasRinging) {
+                        try {
+                            //Kiểm tra trạng thái bắt máy
+                            // ???????????????????
+                            db.collection("Audio").document(selected_Audio.getId()).update("status", "1");
+                            //Toast.makeText(Activity_CallWithMp3.this, "bắt máy", Toast.LENGTH_SHORT).show();
+                            wentIntoCall = true;
+                        }catch (Exception e) {}
+                    }
+                    wasRinging = true;
+                    break;
+            }
         }
     };
 
